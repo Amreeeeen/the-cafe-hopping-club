@@ -779,9 +779,10 @@ function loadDB() {
   catch { return defaultDB(); }
 }
 function saveDB() {
-  try {
+try {
     localStorage.setItem(DB_KEY, JSON.stringify(db));
-  } catch (err) {
+  } 
+catch (err) {
     alert(
       'Storage limit reached. Export your data and remove some photos.'
     );
