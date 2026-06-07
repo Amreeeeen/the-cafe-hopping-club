@@ -1602,6 +1602,20 @@ document.getElementById('coverPhotoInput').onchange = e => {
 
 document.getElementById('galleryPhotosInput').onchange = e => {
   Array.from(e.target.files).forEach(file => {
+
+    if (file.size > 500000) {
+      alert(`${file.name} is too large. Keep images under 500KB.`);
+      return;
+    }
+
+    const r = new FileReader();
+    r.onload = ev => {
+      pendingGallery.push(ev.target.result);
+      renderGalleryPreviews();
+    };
+    r.readAsDataURL(file);
+  });
+};
     const r = new FileReader();
     r.onload = ev => { pendingGallery.push(ev.target.result); renderGalleryPreviews(); };
     r.readAsDataURL(file);
