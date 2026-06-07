@@ -1597,9 +1597,7 @@ document.getElementById('coverPhotoInput').onchange = e => {
       `<img src="${ev.target.result}" style="width:100%;max-height:120px;object-fit:cover;border-radius:8px;margin-top:4px">`;
   };
   r.readAsDataURL(file);
-}; 
-  if(!file) return;
-  const r = new FileReader();
+  if(!file) return; const r = new FileReader();
   r.onload = ev => {
     pendingCoverPhoto = ev.target.result;
     document.getElementById('coverPreview').innerHTML = `<img src="${ev.target.result}" style="width:100%;max-height:120px;object-fit:cover;border-radius:8px;margin-top:4px">`;
