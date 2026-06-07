@@ -778,8 +778,17 @@ function loadDB() {
   try { return JSON.parse(localStorage.getItem(DB_KEY)) || defaultDB(); }
   catch { return defaultDB(); }
 }
-function saveDB() { localStorage.setItem(DB_KEY, JSON.stringify(db)); }
-function defaultDB() {
+function saveDB() {
+  try {
+    localStorage.setItem(DB_KEY, JSON.stringify(db));
+  } catch (err) {
+    alert(
+      'Storage limit reached. Export your data and remove some photos.'
+    );
+    console.error(err);
+  }
+}
+  function defaultDB() {
   return {
     cities: ['Mysuru','Bangalore','Coorg'],
     cafes: [
