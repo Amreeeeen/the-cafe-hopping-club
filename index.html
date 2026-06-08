@@ -1626,7 +1626,7 @@ document.getElementById('galleryPhotosInput').onchange = e => {
     const r = new FileReader();
     r.onload = ev => { pendingGallery.push(ev.target.result); renderGalleryPreviews(); };
     r.readAsDataURL(file);
-  });
+  };
 };
 
 // Drag and drop for cover
